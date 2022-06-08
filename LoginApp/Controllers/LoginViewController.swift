@@ -8,19 +8,19 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-    
+    //MARK: Outlets
     @IBOutlet weak var loginTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var logInButton: UIButton!
     
-    private var user = User(login: "Vit", password: "123", name: "Vitaliy", surname: "Usoltsev")
+    var user = User(login: "Vit", password: "123", name: "Vitaliy", surname: "Usoltsev")
     
     override func viewDidLoad() {
         super.viewDidLoad()
                 loginTF.delegate = self
                 passwordTF.delegate = self
     }
-    
+    //MARK: Actions
     @IBAction func logInPressed() {
         guard
             loginTF.text == user.login,
@@ -34,7 +34,7 @@ class LoginViewController: UIViewController {
         performSegue(withIdentifier: "login", sender: nil)
     }
 }
-
+    //MARK: Extension Add Alert + Unwind Segue
 extension LoginViewController {
     
     private func showAlert(title: String, message: String, textField: UITextField? = nil) {
@@ -62,7 +62,7 @@ extension LoginViewController {
         aboutMeVC.user.surname = user.surname
     }
 }
-
+    //MARK: Text Field Delegate
 extension LoginViewController: UITextFieldDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

@@ -15,7 +15,7 @@ class WelcomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //MARK: Add Gradient for View Background
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = self.view.bounds
         gradientLayer.colors = [UIColor.purple.cgColor, UIColor.white.cgColor]
@@ -23,19 +23,5 @@ class WelcomeViewController: UIViewController {
         
         guard let name = user.name else { return }
         welcomeLabel.text = "Welcome \(name)"
-        // Do any additional setup after loading the view.
     }
-    
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
